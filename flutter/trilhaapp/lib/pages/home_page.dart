@@ -40,14 +40,17 @@ class _MyHomePageState extends State<MyHomePage> {
                 ),
               ),
             ),
-            Expanded(
-              flex: 2,
-              child: Container(
-                width: double.infinity,
-                color: Colors.amberAccent,
-                child: Text(
-                  "O número gerado foi: $numero",
-                  style: GoogleFonts.notoSerifGrantha(fontSize: 20),
+            SizedBox(
+              width: 100,
+              height: 100,
+              child: Expanded(
+                flex: 2,
+                child: Container(
+                  color: Colors.amberAccent,
+                  child: Text(
+                    "O número gerado foi: $numero",
+                    style: GoogleFonts.notoSerifGrantha(fontSize: 20),
+                  ),
                 ),
               ),
             ),
