@@ -29,42 +29,71 @@ class _MyHomePageState extends State<MyHomePage> {
           crossAxisAlignment: CrossAxisAlignment.center,
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text(
-              "Foi clicado $quantidadeCliques vezes",
-              style: GoogleFonts.notoSerifGrantha(fontSize: 20),
-            ),
-            Text(
-              "O número gerado foi: $numero",
-              style: GoogleFonts.notoSerifGrantha(fontSize: 20),
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                Container(
-                  margin: const EdgeInsets.symmetric(vertical: 16),
-                  color: Colors.blue,
-                  child: Text(
-                    "10",
-                    style: GoogleFonts.acme(fontSize: 20),
-                  ),
+            Expanded(
+              flex: 3,
+              child: Container(
+                width: double.infinity,
+                color: Colors.deepOrange,
+                child: Text(
+                  "Foi clicado $quantidadeCliques vezes",
+                  style: GoogleFonts.notoSerifGrantha(fontSize: 20),
                 ),
-                Container(
-                  margin: const EdgeInsets.symmetric(vertical: 16),
-                  color: Colors.amber,
-                  child: Text(
-                    "20",
-                    style: GoogleFonts.acme(fontSize: 20),
-                  ),
+              ),
+            ),
+            Expanded(
+              flex: 2,
+              child: Container(
+                width: double.infinity,
+                color: Colors.amberAccent,
+                child: Text(
+                  "O número gerado foi: $numero",
+                  style: GoogleFonts.notoSerifGrantha(fontSize: 20),
                 ),
-                Container(
-                  margin: const EdgeInsets.symmetric(vertical: 16),
-                  color: Colors.green,
-                  child: Text(
-                    "30",
-                    style: GoogleFonts.acme(fontSize: 20),
-                  ),
-                )
-              ],
+              ),
+            ),
+            Expanded(
+              child: Container(
+                width: double.infinity,
+                color: Colors.black,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    Expanded(
+                      flex: 1,
+                      child: Container(
+                        margin: const EdgeInsets.symmetric(vertical: 16),
+                        color: Colors.blue,
+                        child: Text(
+                          "10",
+                          style: GoogleFonts.acme(fontSize: 20),
+                        ),
+                      ),
+                    ),
+                    Expanded(
+                      flex: 2,
+                      child: Container(
+                        margin: const EdgeInsets.symmetric(vertical: 16),
+                        color: Colors.amber,
+                        child: Text(
+                          "20",
+                          style: GoogleFonts.acme(fontSize: 20),
+                        ),
+                      ),
+                    ),
+                    Expanded(
+                      flex: 2,
+                      child: Container(
+                        margin: const EdgeInsets.symmetric(vertical: 16),
+                        color: Colors.green,
+                        child: Text(
+                          "30",
+                          style: GoogleFonts.acme(fontSize: 20),
+                        ),
+                      ),
+                    )
+                  ],
+                ),
+              ),
             )
           ],
         ),
