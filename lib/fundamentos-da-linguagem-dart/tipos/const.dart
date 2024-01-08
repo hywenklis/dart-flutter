@@ -4,4 +4,6 @@ void main(List<String> arguments) {
   const bool variavel2 = true;
   
   print(variavel);
+  print(variavel1);
+  print(variavel2);
 }
