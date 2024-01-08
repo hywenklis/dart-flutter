@@ -37,13 +37,42 @@ class _MyHomePageState extends State<MyHomePage> {
               "O número gerado foi: $numero",
               style: GoogleFonts.notoSerifGrantha(fontSize: 20),
             ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                Container(
+                  margin: const EdgeInsets.symmetric(vertical: 16),
+                  color: Colors.blue,
+                  child: Text(
+                    "10",
+                    style: GoogleFonts.acme(fontSize: 20),
+                  ),
+                ),
+                Container(
+                  margin: const EdgeInsets.symmetric(vertical: 16),
+                  color: Colors.amber,
+                  child: Text(
+                    "20",
+                    style: GoogleFonts.acme(fontSize: 20),
+                  ),
+                ),
+                Container(
+                  margin: const EdgeInsets.symmetric(vertical: 16),
+                  color: Colors.green,
+                  child: Text(
+                    "30",
+                    style: GoogleFonts.acme(fontSize: 20),
+                  ),
+                )
+              ],
+            )
           ],
         ),
       ),
       floatingActionButton: FloatingActionButton(
           onPressed: () {
             setState(() {
-              quantidadeCliques + 1;
+              quantidadeCliques = quantidadeCliques + 1;
               numero = GeradorNumero.aleatorio(1000);
             });
           },
