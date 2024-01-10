@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:trilhaapp/pages/Pagina1.dart';
+import 'package:trilhaapp/pages/Pagina2.dart';
+import 'package:trilhaapp/pages/Pagina3.dart';
 import 'package:trilhaapp/pages/dados_cadastrais.dart';
 
 class MainHomePage extends StatefulWidget {
@@ -61,6 +64,17 @@ class _MainHomePageState extends State<MainHomePage> {
           ],
         ),
       )),
+      body: Column(
+        children: [
+          Expanded(
+            child: PageView(children: const [
+              Pagina1MyWidget(),
+              Pagina2MyWidget(),
+              Pagina3MyWidget()
+            ]),
+          ),
+        ],
+      ),
     );
   }
 }
