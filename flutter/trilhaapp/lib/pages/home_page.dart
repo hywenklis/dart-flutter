@@ -12,8 +12,45 @@ class _MainHomePageState extends State<MainHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Meu App"),
+        title: const Text("Meu App", style: TextStyle(color: Colors.white)),
       ),
+      drawer: Drawer(
+          child: Padding(
+        padding: const EdgeInsets.symmetric(vertical: 60, horizontal: 30),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Container(
+              padding: const EdgeInsets.symmetric(vertical: 5),
+              width: double.infinity,
+              child: InkWell(
+                child: const Text("Dados cadastrais"),
+                onTap: () {},
+              ),
+            ),
+            const Divider(),
+            const SizedBox(height: 10),
+            Container(
+              padding: const EdgeInsets.symmetric(vertical: 5),
+              width: double.infinity,
+              child: InkWell(
+                child: const Text("Termos de uso e privacidade"),
+                onTap: () {},
+              ),
+            ),
+            const Divider(),
+            const SizedBox(height: 10),
+            Container(
+              padding: const EdgeInsets.symmetric(vertical: 5),
+              width: double.infinity,
+              child: InkWell(
+                child: const Text("Configurações"),
+                onTap: () {},
+              ),
+            ),
+          ],
+        ),
+      )),
     );
   }
 }

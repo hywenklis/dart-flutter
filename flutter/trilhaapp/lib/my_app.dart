@@ -11,14 +11,9 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'App',
       theme: ThemeData(
-          colorScheme: ColorScheme.fromSeed(seedColor: Colors.amber),
-          useMaterial3: true,
+          appBarTheme: const AppBarTheme(color: Colors.blue),
+          // colorScheme: ColorScheme.fromSeed(seedColor: Colors.amber),
           textTheme: GoogleFonts.robotoTextTheme()),
-      //home: MyHomePage(
-      //    title: Text(
-      //  'My App',
-      //  style: GoogleFonts.roboto(),
-      //)),
       home: MyLoginPage(
         title: Text(
           'My Login Page',
