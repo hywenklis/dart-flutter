@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:trilhaapp/pages/home_page.dart';
 
 class MyLoginPage extends StatefulWidget {
   const MyLoginPage({super.key, required this.title});
@@ -127,7 +128,26 @@ class _MyLoginPageState extends State<MyLoginPage> {
                   child: SizedBox(
                     width: double.infinity,
                     child: TextButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        if (emailController.text.trim() == "email@test.com" &&
+                            senhaController.text.trim() == "senha") {
+                          debugPrint("Login efetuado com sucesso!");
+                          debugPrint("email=${emailController.text}");
+                          debugPrint("senha=${senhaController.text}");
+                          Navigator.pushReplacement(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => const MainHomePage()));
+                        } else {
+                          debugPrint("Dados incorretos tente novamente!");
+                          debugPrint("email=${emailController.text}");
+                          debugPrint("senha=${senhaController.text}");
+                          ScaffoldMessenger.of(context).showSnackBar(
+                              const SnackBar(
+                                  content: Text(
+                                      "Dados incorretos tente novamente!")));
+                        }
+                      },
                       style: ButtonStyle(
                           shape: MaterialStateProperty.all(
                               RoundedRectangleBorder(
