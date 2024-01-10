@@ -10,6 +10,10 @@ class MyLoginPage extends StatefulWidget {
 }
 
 class _MyLoginPageState extends State<MyLoginPage> {
+  var email = "";
+  var senha = "";
+  var isObscureText = true;
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -58,9 +62,13 @@ class _MyLoginPageState extends State<MyLoginPage> {
                   margin: const EdgeInsets.symmetric(horizontal: 30),
                   height: 30,
                   alignment: Alignment.center,
-                  child: const TextField(
-                      style: TextStyle(color: Colors.white),
-                      decoration: InputDecoration(
+                  child: TextField(
+                      onChanged: (value) {
+                        email = value;
+                        print(email);
+                      },
+                      style: const TextStyle(color: Colors.white),
+                      decoration: const InputDecoration(
                         contentPadding: EdgeInsets.only(top: -7),
                         enabledBorder: UnderlineInputBorder(
                             borderSide: BorderSide(color: Colors.deepPurple)),
@@ -78,23 +86,35 @@ class _MyLoginPageState extends State<MyLoginPage> {
                     margin: const EdgeInsets.symmetric(horizontal: 30),
                     height: 30,
                     alignment: Alignment.center,
-                    child: const TextField(
-                      style: TextStyle(color: Colors.white),
+                    child: TextField(
+                      obscureText: isObscureText,
+                      onChanged: (value) {
+                        senha = value;
+                        print(senha);
+                      },
+                      style: const TextStyle(color: Colors.white),
                       decoration: InputDecoration(
-                          contentPadding: EdgeInsets.only(top: -7),
-                          enabledBorder: UnderlineInputBorder(
+                          contentPadding: const EdgeInsets.only(top: -7),
+                          enabledBorder: const UnderlineInputBorder(
                               borderSide: BorderSide(color: Colors.deepPurple)),
-                          focusedBorder: UnderlineInputBorder(
+                          focusedBorder: const UnderlineInputBorder(
                               borderSide: BorderSide(color: Colors.deepPurple)),
                           hintText: "Senha",
-                          hintStyle: TextStyle(color: Colors.white),
-                          prefixIcon: Icon(
+                          hintStyle: const TextStyle(color: Colors.white),
+                          prefixIcon: const Icon(
                             Icons.lock_outline,
                             color: Colors.deepPurple,
                           ),
-                          suffixIcon: Icon(
-                            Icons.visibility,
-                            color: Colors.white,
+                          suffixIcon: InkWell(
+                            onTap: () => setState(() {
+                              isObscureText = !isObscureText;
+                            }),
+                            child: Icon(
+                              isObscureText
+                                  ? Icons.visibility_off_outlined
+                                  : Icons.visibility,
+                              color: Colors.white,
+                            ),
                           )),
                     )),
                 const SizedBox(height: 30),
