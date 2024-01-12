@@ -1,3 +1,5 @@
+import 'dart:ffi';
+
 import 'package:flutter/material.dart';
 import 'package:trilhaapp/repositories/linguagens_repository.dart';
 import 'package:trilhaapp/repositories/nivel_repository.dart';
@@ -22,6 +24,7 @@ class _DadosCadastraisPageMyWidgetState
   var linguagens = [];
   var nivelSelecionado = "";
   var linguagemSelecionadas = [];
+  double salarioEscolhido = 0;
 
   @override
   void initState() {
@@ -92,6 +95,18 @@ class _DadosCadastraisPageMyWidgetState
                       }))
                   .toList(),
             ),
+            TextLabelMyWidget(
+                text:
+                    "Preferência Salarial. R\$ ${salarioEscolhido.round().toString()}"),
+            Slider(
+                min: 0,
+                max: 10000,
+                value: salarioEscolhido,
+                onChanged: (value) {
+                  setState(() {
+                    salarioEscolhido = value;
+                  });
+                }),
             TextButton(
                 onPressed: () {
                   debugPrint(nomeController.text);
