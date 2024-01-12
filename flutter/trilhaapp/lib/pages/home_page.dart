@@ -38,9 +38,7 @@ class _MainHomePageState extends State<MainHomePage> {
                       context,
                       MaterialPageRoute(
                           builder: (context) =>
-                              const DadosCadastraisPageMyWidget(
-                                text: "Cadastro",
-                              )));
+                              const DadosCadastraisPageMyWidget()));
                 },
               ),
             ),
