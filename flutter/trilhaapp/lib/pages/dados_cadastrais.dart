@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:trilhaapp/repositories/nivel_repository.dart';
 import 'package:trilhaapp/shared/widgets/text_label.dart';
 
 class DadosCadastraisPageMyWidget extends StatefulWidget {
@@ -14,6 +15,15 @@ class _DadosCadastraisPageMyWidgetState
   var nomeController = TextEditingController(text: "");
   var dataNascimentoController = TextEditingController(text: "");
   DateTime? dataNascimento;
+  var nivelRepository = NivelRepository();
+  var niveis = [];
+  var nivelSelecionado = "";
+
+  @override
+  void initState() {
+    niveis = nivelRepository.retornaNiveis();
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -30,7 +40,6 @@ class _DadosCadastraisPageMyWidgetState
             TextField(
               controller: nomeController,
             ),
-            const SizedBox(height: 10),
             const TextLabelMyWidget(text: "Data de Nascimento"),
             TextField(
               controller: dataNascimentoController,
@@ -47,11 +56,27 @@ class _DadosCadastraisPageMyWidgetState
                 }
               },
             ),
+            const TextLabelMyWidget(text: "Nivel de Experiência"),
+            Column(
+              children: niveis
+                  .map((nivel) => RadioListTile(
+                      dense: true,
+                      title: Text(nivel.toString()),
+                      value: nivel.toString(),
+                      selected: nivelSelecionado == nivel.toString(),
+                      groupValue: nivelSelecionado,
+                      onChanged: (value) {
+                        setState(() {
+                          nivelSelecionado = value.toString();
+                        });
+                      }))
+                  .toList(),
+            ),
             TextButton(
                 onPressed: () {
                   debugPrint(nomeController.text);
                 },
-                child: const Text("Salvar"))
+                child: const Text("Salvar")),
           ],
         ),
       ),
