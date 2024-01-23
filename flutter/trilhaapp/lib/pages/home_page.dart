@@ -3,6 +3,7 @@ import 'package:trilhaapp/pages/Pagina1.dart';
 import 'package:trilhaapp/pages/Pagina2.dart';
 import 'package:trilhaapp/pages/Pagina3.dart';
 import 'package:trilhaapp/pages/dados_cadastrais.dart';
+import 'package:trilhaapp/shared/widgets/custon_drawer.dart';
 
 class MainHomePage extends StatefulWidget {
   const MainHomePage({super.key});
@@ -21,50 +22,7 @@ class _MainHomePageState extends State<MainHomePage> {
       appBar: AppBar(
         title: const Text("Meu App", style: TextStyle(color: Colors.white)),
       ),
-      drawer: Drawer(
-          child: Padding(
-        padding: const EdgeInsets.symmetric(vertical: 60, horizontal: 30),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Container(
-              padding: const EdgeInsets.symmetric(vertical: 5),
-              width: double.infinity,
-              child: InkWell(
-                child: const Text("Dados cadastrais"),
-                onTap: () {
-                  Navigator.pop(context);
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) =>
-                              const DadosCadastraisPageMyWidget()));
-                },
-              ),
-            ),
-            const Divider(),
-            const SizedBox(height: 10),
-            Container(
-              padding: const EdgeInsets.symmetric(vertical: 5),
-              width: double.infinity,
-              child: InkWell(
-                child: const Text("Termos de uso e privacidade"),
-                onTap: () {},
-              ),
-            ),
-            const Divider(),
-            const SizedBox(height: 10),
-            Container(
-              padding: const EdgeInsets.symmetric(vertical: 5),
-              width: double.infinity,
-              child: InkWell(
-                child: const Text("Configurações"),
-                onTap: () {},
-              ),
-            ),
-          ],
-        ),
-      )),
+      drawer: const CustonDrawerMyWidget(),
       body: Column(
         children: [
           Expanded(
